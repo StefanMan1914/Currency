@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id();                     //Fields in the database table for the users
             $table->string('name');
             $table->float('hour_rate');
             $table->string('currency');

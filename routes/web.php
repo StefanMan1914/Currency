@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('useradd', 'useradd');
+Route::view('useradd', 'useradd');  // Adding the route to access the form for creation of the user.
+Route::post('submit', 'App\Http\Controllers\UserAdd@save')->name('save');
+Route::get('useradd', 'App\Http\Controllers\UserAdd@getUsers');
