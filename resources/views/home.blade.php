@@ -12,9 +12,10 @@
             }
         </style>
         <div>
+        <!-- Creating a table where the button will display the user information in another page for conversion of hour rate to different currency -->
         <form action="gotoadd" method="POST" enctype="multipart/form-data">
                 @csrf
-                <!-- Button for submition of the form -->
+                <!-- Button for switching through tabs -->
                 <button type="gotoadd">Create User</button>
         </form>
         
@@ -28,12 +29,14 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Creating a foreach loop to retrieve all of the records from the database users table-->
             @foreach($data as $record)
             @foreach($record as $r)
             <form action="displayuser" method="POST" enctype="multipart/form-data">
             @csrf
             <tr>
                 <td>{{ $r->name }}</td>
+                <!-- Hidden fields to pass information to the controller on submition of the form -->
                 <input type="hidden" name="name_table" value= {{ $r->name }}>
                 <input type="hidden" name="hour_rate_table" value= {{ $r->hour_rate }}>
                 <input type="hidden" name="currency_table" value= {{ $r->currency }}>
