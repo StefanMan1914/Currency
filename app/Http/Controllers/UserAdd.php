@@ -14,10 +14,19 @@ class UserAdd extends Controller
         $user->name = $req->name;   // Assignes the values from the form to the fields of the database table
         $user->hour_rate = $req->hour_rate;
         $user->currency = $req->currency;
+        $user->save();
+
+        $data['data'] = DB::table('users')->get();  //This function retrieves the data from the database users table
+                                                    //in order to send it to the next view page
+        if(count($data) > 0){
+            return view('home')->with('data', $data);
+        } else {
+            return view('home');
+        }
  
     }
 
-   function getUsers(){             //This data retrieves the data from the database users table
+   function getUsers(){             
         
         $data['data'] = DB::table('users')->get();
 

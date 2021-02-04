@@ -1,5 +1,13 @@
 <html>
 <body>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center; 
+  vertical-align: middle;
+}
+</style>
  <!-- Creating the form for submitting the user data to the database -->
     <form action="submit" method="POST" enctype="multipart/form-data">
     @csrf
@@ -20,28 +28,6 @@
         <button type="submit">Add User</button>
     </form>
 
-    <div>
-        
-    <table>
-        
-        <tr>
-            <td>Name</td>
-            <td>Rate Per Hour</td>
-            <td>Currency</td>
-            <td>Button</td>
-        </tr>
-        @foreach($data as $record)
-        @foreach($record as $r)
-        <tr>
-            <td>{{ $r->name }}</td>
-            <td>{{ $r->hour_rate }}</td>
-            <td>{{ $r->currency }}</td>
-            <td>Smth</td>
-        </tr>
-        @endforeach
-        @endforeach
-        
-    </table>    
-    </div>
+    
 </body>
 </html>

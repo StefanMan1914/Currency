@@ -13,8 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {             
+        
+        $data['data'] = DB::table('users')->get();
+
+        if(count($data) > 0){
+            return view('home')->with('data', $data);
+        } else {
+            return view('home');
+        }
+});
+Route::get('home', 'App\Http\Controllers\Home@getUsers');
+
+Route::post('gotoadd', function(){
+    return view('useradd');
 });
 
 Route::view('useradd', 'useradd');  // Adding the route to access the form for creation of the user.
