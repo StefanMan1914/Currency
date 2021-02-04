@@ -27,7 +27,7 @@ class UserAdd extends Controller
     }
 
    function getUsers(){             
-        
+        //Retrieve users data from the database
         $data['data'] = DB::table('users')->get();
 
         if(count($data) > 0){
